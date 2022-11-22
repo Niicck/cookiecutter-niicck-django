@@ -12,18 +12,14 @@ https://docs.djangoproject.com/en/4.1/ref/settings/
 
 from pathlib import Path
 
+from cbs import BaseSettings, env
+
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/4.1/howto/deployment/checklist/
-
-# SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = "django-insecure-_l^e)++a%wl5$*e0^i7(08w3y#d=%!mx@jf98)3h9%k7x$85=y"
-
-# SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
 
 ALLOWED_HOSTS: list[int] = []
 
@@ -120,3 +116,19 @@ STATIC_URL = "static/"
 # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
+
+
+class Settings(BaseSettings):
+    @env
+    def SECRET_KEY(self):
+        raise ValueError("SECRET_KEY not supplied!")
+
+
+class LocalSettings(Settings):
+    @env
+    def DEBUG(self):
+        return False
+
+
+class ProductionSettings(Settings):
+    DEBUG = False

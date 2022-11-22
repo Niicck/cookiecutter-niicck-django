@@ -101,6 +101,17 @@ argon2 = ["argon2-cffi (>=19.1.0)"]
 bcrypt = ["bcrypt"]
 
 [[package]]
+name = "django-classy-settings"
+version = "3.0.1"
+description = "Simple class-based settings for Django"
+category = "main"
+optional = false
+python-versions = ">=3.7,<4.0"
+
+[package.dependencies]
+Django = "*"
+
+[[package]]
 name = "django-stubs"
 version = "1.13.0"
 description = "Mypy stubs for Django"
@@ -455,7 +466,7 @@ testing = ["coverage (>=6.2)", "coverage-enable-subprocess (>=1)", "flaky (>=3.7
 [metadata]
 lock-version = "1.1"
 python-versions = "^3.11"
-content-hash = "2f0acfcd42b4f16fc982746e3652251217f5314cc808f2ae88c5fe0f09abea89"
+content-hash = "72be36c5a92b1557eb9b77b8c3dbc792c1f34e3a958abfc2af53d21275d9b561"
 
 [metadata.files]
 asgiref = [
@@ -512,6 +523,10 @@ distlib = [
 django = [
     {file = "Django-4.1.3-py3-none-any.whl", hash = "sha256:6b1de6886cae14c7c44d188f580f8ba8da05750f544c80ae5ad43375ab293cd5"},
     {file = "Django-4.1.3.tar.gz", hash = "sha256:678bbfc8604eb246ed54e2063f0765f13b321a50526bdc8cb1f943eda7fa31f1"},
+]
+django-classy-settings = [
+    {file = "django-classy-settings-3.0.1.tar.gz", hash = "sha256:9f37108b79f3c71a41f5cd08fdacb33d916a1ce6e21b9d3c99c48b7db6cc0b6e"},
+    {file = "django_classy_settings-3.0.1-py3-none-any.whl", hash = "sha256:d8df8527be5826982acf10aab2c84dadfcc35aaaf903043aceadcaaf25fc3d38"},
 ]
 django-stubs = [
     {file = "django-stubs-1.13.0.tar.gz", hash = "sha256:424fdd1935f859a802365056f9ccf4db12d1d93a5ab3de6d5633dddba0c5fc76"},
