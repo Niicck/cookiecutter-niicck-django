@@ -1,7 +1,10 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+
 # pyenv
 .python-version
 
-### VisualStudioCode template
+# VisualStudioCode template
 .vscode
 .vscode/*
 !.vscode/settings.json
@@ -10,6 +13,12 @@
 !.vscode/extensions.json
 *.code-workspace
 
-# Environments
+# Virtual Environments
 .venv
 venv/
+
+# mypy
+.mypy_cache/
+
+# env variables
+.env

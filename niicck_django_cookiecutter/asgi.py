@@ -1,5 +1,5 @@
 """
-ASGI config for replace_me_cookiecutter project.
+ASGI config for niicck_django_cookiecutter project.
 
 It exposes the ASGI callable as a module-level variable named ``application``.
 
@@ -11,6 +11,6 @@ import os
 
 from django.core.asgi import get_asgi_application
 
-os.environ.setdefault("DJANGO_SETTINGS_MODULE", "replace_me_cookiecutter.settings")
+os.environ.setdefault("DJANGO_SETTINGS_MODULE", "niicck_django_cookiecutter.settings")
 
 application = get_asgi_application()

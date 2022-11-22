@@ -10,6 +10,7 @@ packages = [{include = "niicck_django_cookiecutter"}]
 python = "^3.11"
 django = "^4.1.3"
 django-classy-settings = "^3.0.1"
+python-dotenv = "^0.21.0"
 
 
 [tool.poetry.group.dev.dependencies]
