@@ -112,6 +112,14 @@ python-versions = ">=3.7,<4.0"
 Django = "*"
 
 [[package]]
+name = "django-shell-plus"
+version = "1.1.7"
+description = "django-admin.py shell+  <- shell with models auto-imported"
+category = "main"
+optional = false
+python-versions = "*"
+
+[[package]]
 name = "django-stubs"
 version = "1.13.0"
 description = "Mypy stubs for Django"
@@ -477,7 +485,7 @@ testing = ["coverage (>=6.2)", "coverage-enable-subprocess (>=1)", "flaky (>=3.7
 [metadata]
 lock-version = "1.1"
 python-versions = "^3.11"
-content-hash = "d6d943db56f809b3d6a9b9b487cf54d17d9ebab73cbee6c477b1dfd3c5e8b1ae"
+content-hash = "48d03f3953d801e772b5959a3a652be476af4494b9c5f8b7dd2b1884acfbec1a"
 
 [metadata.files]
 asgiref = [
@@ -538,6 +546,9 @@ django = [
 django-classy-settings = [
     {file = "django-classy-settings-3.0.1.tar.gz", hash = "sha256:9f37108b79f3c71a41f5cd08fdacb33d916a1ce6e21b9d3c99c48b7db6cc0b6e"},
     {file = "django_classy_settings-3.0.1-py3-none-any.whl", hash = "sha256:d8df8527be5826982acf10aab2c84dadfcc35aaaf903043aceadcaaf25fc3d38"},
+]
+django-shell-plus = [
+    {file = "django-shell-plus-1.1.7.tar.gz", hash = "sha256:fcad4b3b97ee66d3fb61dc020711d53acf71db637b3e40970e9c7b23949e2b50"},
 ]
 django-stubs = [
     {file = "django-stubs-1.13.0.tar.gz", hash = "sha256:424fdd1935f859a802365056f9ccf4db12d1d93a5ab3de6d5633dddba0c5fc76"},
