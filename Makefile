@@ -1,4 +1,4 @@
-.PHONY: install pre-commit type-check .env
+.PHONY: install pre-commit type-check .env build
 
 install:
 	poetry
@@ -14,4 +14,8 @@ type-check:
 
 # Create .env from template if .env doesn't already exist
 .env:
-	cp ./scripts/template.env .env
+	cp ./utils/template.env .env
+
+build:
+	sh ./utils/build_requirements_txt.sh
+	docker-compose build

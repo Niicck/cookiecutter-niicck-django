@@ -1,0 +1,7 @@
+version: '3.9'
+
+# Mount
+services:
+  app:
+    volumes:
+      - './niicck_django_cookiecutter:{APP_HOME}/niicck_django_cookiecutter'

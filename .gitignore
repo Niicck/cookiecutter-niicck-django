@@ -22,3 +22,6 @@ venv/
 
 # env variables
 .env
+
+# media
+# niicck_django_cookiecutter/media/*
