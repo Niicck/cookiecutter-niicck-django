@@ -1,7 +1,9 @@
-version: '3.9'
+version: "3.9"
 
 # Mount
 services:
   app:
+    build:
+      target: local
     volumes:
-      - './niicck_django_cookiecutter:{APP_HOME}/niicck_django_cookiecutter'
+      - '../niicck_django_cookiecutter:${APP_HOME}/niicck_django_cookiecutter'

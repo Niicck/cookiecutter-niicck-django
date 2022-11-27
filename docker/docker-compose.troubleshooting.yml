@@ -1,0 +1,6 @@
+version: "3.9"
+
+# Mount
+services:
+  app:
+    entrypoint: tail -f /dev/null

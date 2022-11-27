@@ -1,4 +1,7 @@
-.PHONY: install pre-commit type-check .env build
+.PHONY: install pre-commit type-check .env build up
+
+include .env
+export
 
 install:
 	poetry
@@ -18,4 +21,14 @@ type-check:
 
 build:
 	sh ./utils/build_requirements_txt.sh
-	docker-compose build
+	docker compose \
+		-f ./docker/docker-compose.yml \
+		-f ./docker/docker-compose.local.yml \
+		build
+
+up:
+	docker compose \
+		-f ./docker/docker-compose.yml \
+		-f ./docker/docker-compose.local.yml \
+		--env-file .env \
+		up

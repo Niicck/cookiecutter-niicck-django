@@ -41,14 +41,15 @@ TEMPLATES = [
 
 WSGI_APPLICATION = "niicck_django_cookiecutter.wsgi.application"
 
-
-# Database
-# https://docs.djangoproject.com/en/4.1/ref/settings/#databases
-
 DATABASES = {
     "default": {
-        "ENGINE": "django.db.backends.sqlite3",
-        "NAME": BASE_DIR / "db.sqlite3",
+        "ENGINE": "django.db.backends.postgresql",
+        "NAME": env(key="POSTGRES_DB"),
+        "USER": env(key="POSTGRES_USER"),
+        "PASSWORD": env(key="POSTGRES_PASSWORD"),
+        "HOST": env(key="POSTGRES_HOST"),
+        "PORT": env(key="POSTGRES_PORT"),
+        "CONN_MAX_AGE": 0,
     }
 }
 
@@ -93,6 +94,26 @@ STATIC_URL = "static/"
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
+INSTALLED_APPS = [
+    "django.contrib.admin",
+    "django.contrib.auth",
+    "django.contrib.contenttypes",
+    "django.contrib.sessions",
+    "django.contrib.messages",
+    "django.contrib.staticfiles",
+    "django.contrib.postgres",
+]
+
+MIDDLEWARE = [
+    "django.middleware.security.SecurityMiddleware",
+    "django.contrib.sessions.middleware.SessionMiddleware",
+    "django.middleware.common.CommonMiddleware",
+    "django.middleware.csrf.CsrfViewMiddleware",
+    "django.contrib.auth.middleware.AuthenticationMiddleware",
+    "django.contrib.messages.middleware.MessageMiddleware",
+    "django.middleware.clickjacking.XFrameOptionsMiddleware",
+]
+
 
 class Settings(BaseSettings):
     @env
@@ -100,27 +121,6 @@ class Settings(BaseSettings):
         raise ValueError("SECRET_KEY not supplied!")
 
     DEBUG = env.bool(True)
-
-    def INSTALLED_APPS(self):
-        return [
-            "django.contrib.admin",
-            "django.contrib.auth",
-            "django.contrib.contenttypes",
-            "django.contrib.sessions",
-            "django.contrib.messages",
-            "django.contrib.staticfiles",
-        ]
-
-    def MIDDLEWARE(self):
-        return [
-            "django.middleware.security.SecurityMiddleware",
-            "django.contrib.sessions.middleware.SessionMiddleware",
-            "django.middleware.common.CommonMiddleware",
-            "django.middleware.csrf.CsrfViewMiddleware",
-            "django.contrib.auth.middleware.AuthenticationMiddleware",
-            "django.contrib.messages.middleware.MessageMiddleware",
-            "django.middleware.clickjacking.XFrameOptionsMiddleware",
-        ]
 
 
 class LocalSettings(Settings):

@@ -3,9 +3,6 @@
 ###
 FROM python:3.11-slim-bullseye as base
 
-# Install poetry
-RUN curl -sSL https://install.python-poetry.org | python3 -
-
 # Install apt packages
 RUN apt-get update && apt-get install --no-install-recommends -y \
     # For building Python packages
@@ -19,7 +16,16 @@ RUN apt-get update && apt-get install --no-install-recommends -y \
 ARG APP_HOME=/app
 WORKDIR ${APP_HOME}
 
-ARG \
+# Python ENV vars
+ENV \
+    PYTHONUNBUFFERED=1 \
+    PYTHONDONTWRITEBYTECODE=1 \
+    PIP_NO_CACHE_DIR=off \
+    PIP_DISABLE_PIP_VERSION_CHECK=on \
+    PIP_DEFAULT_TIMEOUT=100
+
+# App ENV vars
+ENV \
     DJANGO_PORT \
     DJANGO_HOST \
     POSTGRES_DB \
@@ -31,13 +37,6 @@ ARG \
     SECRET_KEY \
     DJANGO_MODE
 
-ENV \
-    PYTHONUNBUFFERED=1 \
-    PYTHONDONTWRITEBYTECODE=1 \
-    PIP_NO_CACHE_DIR=off \
-    PIP_DISABLE_PIP_VERSION_CHECK=on \
-    PIP_DEFAULT_TIMEOUT=100
-
 # Install python packages
 COPY ./docker/artifacts/requirements.txt ./requirements.txt
 RUN pip install -r requirements.txt
@@ -45,8 +44,8 @@ RUN pip install -r requirements.txt
 # Copy application code to WORKDIR
 COPY . ${APP_HOME}
 
-ENTRYPOINT ./docker/docker-entrypoint.sh $0 $@
-CMD ./docker/docker-start.sh
+ENTRYPOINT ./docker/scripts/docker-entrypoint.sh $0 $@
+CMD ./docker/scripts/docker-start.sh
 
 ###
 # local image

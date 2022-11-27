@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 
 # Export poetry requirements to requirements.txt.
 # Docker containers will install packages via requirements.txt, not poetry.
