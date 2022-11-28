@@ -21,7 +21,7 @@ This will install the pre-commit hooks and other tools that are necessary for de
 ## Getting Started
 
 ### Environment Variables
-1. Run `make .env` to build a .env file from a template.
+1. Run `make env-file` to build a .env file from a template.
 2. Configure any variables as needed, change any variables that say `changeme`.
 
 ### Run the app with Docker

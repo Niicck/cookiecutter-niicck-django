@@ -13,10 +13,6 @@ https://docs.djangoproject.com/en/4.1/ref/settings/
 from pathlib import Path
 
 from cbs import BaseSettings, env
-from dotenv import load_dotenv
-
-# Load environment variables from .env
-load_dotenv()
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -40,18 +36,6 @@ TEMPLATES = [
 ]
 
 WSGI_APPLICATION = "niicck_django_cookiecutter.wsgi.application"
-
-DATABASES = {
-    "default": {
-        "ENGINE": "django.db.backends.postgresql",
-        "NAME": env(key="POSTGRES_DB"),
-        "USER": env(key="POSTGRES_USER"),
-        "PASSWORD": env(key="POSTGRES_PASSWORD"),
-        "HOST": env(key="POSTGRES_HOST"),
-        "PORT": env(key="POSTGRES_PORT"),
-        "CONN_MAX_AGE": 0,
-    }
-}
 
 # Password validation
 # https://docs.djangoproject.com/en/4.1/ref/settings/#auth-password-validators
@@ -95,6 +79,7 @@ STATIC_URL = "static/"
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
 INSTALLED_APPS = [
+    # Django
     "django.contrib.admin",
     "django.contrib.auth",
     "django.contrib.contenttypes",
@@ -102,6 +87,8 @@ INSTALLED_APPS = [
     "django.contrib.messages",
     "django.contrib.staticfiles",
     "django.contrib.postgres",
+    # Third Party
+    "django_extensions",
 ]
 
 MIDDLEWARE = [
@@ -114,11 +101,26 @@ MIDDLEWARE = [
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
 ]
 
+# Django Extensions
+SHELL_PLUS = "ipython"
+
 
 class Settings(BaseSettings):
     @env
     def SECRET_KEY(self):
         raise ValueError("SECRET_KEY not supplied!")
+
+    DATABASES = {
+        "default": {
+            "ENGINE": "django.db.backends.postgresql",
+            "NAME": env("POSTGRES_DB"),
+            "USER": env("POSTGRES_USER"),
+            "PASSWORD": env("POSTGRES_PASSWORD"),
+            "HOST": env("POSTGRES_HOST"),
+            "PORT": env.int("POSTGRES_PORT"),
+            "CONN_MAX_AGE": 0,
+        }
+    }
 
     DEBUG = env.bool(True)
 

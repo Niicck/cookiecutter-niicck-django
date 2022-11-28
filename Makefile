@@ -1,7 +1,7 @@
-.PHONY: install pre-commit type-check .env build up
+SHELL := /bin/bash
+-include .env
 
-include .env
-export
+.PHONY: install pre-commit type-check env-file build up shell
 
 install:
 	poetry
@@ -16,14 +16,15 @@ type-check:
 	poetry run mypy niicck_django_cookiecutter
 
 # Create .env from template if .env doesn't already exist
-.env:
-	cp ./utils/template.env .env
+env-file:
+	cp -n ./utils/template.env .env
 
 build:
 	sh ./utils/build_requirements_txt.sh
 	docker compose \
 		-f ./docker/docker-compose.yml \
 		-f ./docker/docker-compose.local.yml \
+		--env-file .env \
 		build
 
 up:
@@ -32,3 +33,9 @@ up:
 		-f ./docker/docker-compose.local.yml \
 		--env-file .env \
 		up
+
+shell:
+	docker exec -it docker-app-1 python manage.py shell_plus
+
+db-shell:
+	docker exec -it docker-db-1 psql -U ${POSTGRES_USER} -d ${POSTGRES_DB} -w

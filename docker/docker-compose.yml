@@ -34,3 +34,5 @@ services:
       - "${DJANGO_PORT}:${DJANGO_PORT}"
     depends_on:
       - db
+    links:
+      - db:postgres
