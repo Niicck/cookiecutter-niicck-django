@@ -23,7 +23,7 @@ services:
       - POSTGRES_PORT
       - DEBUG
       - SECRET_KEY
-      - DJANGO_MODE
+      - DJANGO_CONFIGURATION
     image: ${APP_DOCKER_TAG}
     build:
       context: ..

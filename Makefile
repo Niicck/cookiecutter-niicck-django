@@ -17,7 +17,7 @@ type-check:
 
 # Create .env from template if .env doesn't already exist
 env-file:
-	cp -n ./utils/template.env .env
+	cp -n ./utils/.env-sample .env
 
 build:
 	sh ./utils/build_requirements_txt.sh

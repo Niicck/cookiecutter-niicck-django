@@ -35,7 +35,7 @@ ENV \
     POSTGRES_PORT \
     DEBUG \
     SECRET_KEY \
-    DJANGO_MODE
+    DJANGO_CONFIGURATION
 
 # Install python packages
 COPY ./docker/artifacts/requirements.txt ./requirements.txt
