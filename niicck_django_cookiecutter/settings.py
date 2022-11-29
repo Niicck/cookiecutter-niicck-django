@@ -10,9 +10,10 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/4.1/ref/settings/
 """
 
+import os
 from pathlib import Path
 
-from cbs import BaseSettings, env
+from cbs import BaseSettings
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -67,6 +68,20 @@ USE_I18N = True
 
 USE_TZ = True
 
+SECRET_KEY = os.getenv("SECRET_KEY")
+
+DATABASES = {
+    "default": {
+        "ENGINE": "django.db.backends.postgresql",
+        "NAME": os.getenv("POSTGRES_DB"),
+        "USER": os.getenv("POSTGRES_USER"),
+        "PASSWORD": os.getenv("POSTGRES_PASSWORD"),
+        "HOST": os.getenv("POSTGRES_HOST"),
+        "PORT": int(os.getenv("POSTGRES_PORT")),
+        "CONN_MAX_AGE": 0,
+    }
+}
+
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.1/howto/static-files/
@@ -106,23 +121,7 @@ SHELL_PLUS = "ipython"
 
 
 class Settings(BaseSettings):
-    @env
-    def SECRET_KEY(self):
-        raise ValueError("SECRET_KEY not supplied!")
-
-    DATABASES = {
-        "default": {
-            "ENGINE": "django.db.backends.postgresql",
-            "NAME": env("POSTGRES_DB"),
-            "USER": env("POSTGRES_USER"),
-            "PASSWORD": env("POSTGRES_PASSWORD"),
-            "HOST": env("POSTGRES_HOST"),
-            "PORT": env.int("POSTGRES_PORT"),
-            "CONN_MAX_AGE": 0,
-        }
-    }
-
-    DEBUG = env.bool(True)
+    DEBUG = os.getenv(True)
 
 
 class LocalSettings(Settings):

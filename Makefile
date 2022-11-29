@@ -34,7 +34,18 @@ up:
 		--env-file .env \
 		up
 
+troubleshoot:
+	docker compose \
+		-f ./docker/docker-compose.yml \
+		-f ./docker/docker-compose.local.yml \
+		-f ./docker/docker-compose.troubleshooting.yml \
+		--env-file .env \
+		up
+
 shell:
+	docker exec -it docker-app-1 /bin/bash
+
+shell_plus:
 	docker exec -it docker-app-1 python manage.py shell_plus
 
 db-shell:
