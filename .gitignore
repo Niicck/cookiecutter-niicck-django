@@ -25,3 +25,4 @@ venv/
 
 # django
 niicck_django_cookiecutter/media/*
+niicck_django_cookiecutter/static/*
