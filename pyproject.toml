@@ -1,0 +1,21 @@
+[tool.poetry]
+name = "cookiecutter-niicck-django"
+version = "0.1.0"
+description = ""
+authors = ["Niicck <niicck@users.noreply.github.com>"]
+readme = "README.md"
+packages = [{include = "cookiecutter-niicck-django"}]
+
+[tool.poetry.dependencies]
+python = "^3.11"
+
+[tool.poetry.group.dev.dependencies]
+pre-commit = "^2.20.0"
+black = "^22.10.0"
+isort = "^5.8.0"
+flake8 = "^5.0.4"
+mypy = "^0.991"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
