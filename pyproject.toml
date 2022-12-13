@@ -1,10 +1,10 @@
 [tool.poetry]
-name = "niicck_django_cookiecutter"
+name = "cookiecutter_niicck_django"
 version = "0.1.0"
 description = ""
 authors = ["Niicck <niicck@users.noreply.github.com>"]
 readme = "README.md"
-packages = [{include = "niicck_django_cookiecutter"}]
+packages = [{include = "cookiecutter_niicck_django"}]
 
 [tool.poetry.dependencies]
 python = "^3.11"

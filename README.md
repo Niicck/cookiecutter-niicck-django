@@ -1,4 +1,4 @@
-# niicck_django_cookiecutter
+# cookiecutter_niicck_django
 
 - [About](#about)
 - [Installation](#installation)

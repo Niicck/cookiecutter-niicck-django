@@ -11,5 +11,5 @@ if [ "$DJANGO_CONFIGURATION" == "Local" ]; then
     python $ROOT_DIR/manage.py runserver ${DJANGO_HOST}:${DJANGO_PORT} --insecure
 else
     echo "TODO"
-    # gunicorn --workers=1 --bind=${DJANGO_HOST}:${DJANGO_PORT} --chdir=$ROOT_DIR niicck_django_cookiecutter.wsgi:application
+    # gunicorn --workers=1 --bind=${DJANGO_HOST}:${DJANGO_PORT} --chdir=$ROOT_DIR cookiecutter_niicck_django.wsgi:application
 fi
