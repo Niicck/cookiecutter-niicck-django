@@ -12,6 +12,5 @@ import os
 from configurations.asgi import get_asgi_application
 
 os.environ.setdefault("DJANGO_SETTINGS_MODULE", "niicck_django_cookiecutter.settings")
-os.environ.setdefault("DJANGO_CONFIGURATION", "Local")
 
 application = get_asgi_application()

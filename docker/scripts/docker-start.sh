@@ -7,7 +7,7 @@ ROOT_DIR=$CURRENT_DIR/../..
 
 python $ROOT_DIR/manage.py migrate
 
-if [ $DJANGO_CONFIGURATION == "Local" ]; then
+if [ "$DJANGO_CONFIGURATION" == "Local" ]; then
     python $ROOT_DIR/manage.py runserver ${DJANGO_HOST}:${DJANGO_PORT} --insecure
 else
     echo "TODO"
