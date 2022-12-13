@@ -1,0 +1,8 @@
+{
+    "project_name": "Cookiecutter Niicck Django",
+    "project_slug": "{{ cookiecutter.project_name.lower()|replace(' ', '_')|replace('-', '_')|replace('.', '_')|trim() }}",
+    "description": "TODO",
+    "full_name": "Nick Ivons",
+    "email": "niicck@users.noreply.github.com",
+    "github_username": "Niicck"
+}
