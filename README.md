@@ -1,5 +1,6 @@
 # niicck_django_cookiecutter
 
+- [About](#about)
 - [Installation](#installation)
 - [Getting Started](#getting-started)
   - [Initialize Environment Variables](#initialize-environment-variables)
@@ -9,6 +10,10 @@
     - [Adding a new environment variable](#adding-a-new-environment-variable)
 - [Troubleshooting](#troubleshooting)
 
+## About
+
+This is a cookiecutter django app.
+
 ## Installation
 
 This project is designed to use pyenv (on python v3.11), poetry, and docker for development. If you are missing any of these system dependencies, you can get installation instructions from these links:
@@ -16,6 +21,9 @@ This project is designed to use pyenv (on python v3.11), poetry, and docker for 
 - [Pyenv](https://github.com/pyenv/pyenv#installation)
 - [Poetry](https://python-poetry.org/docs/)
 - [Docker](https://docs.docker.com/get-docker/)
+
+Set the correct version of pyenv by running:
+- `pyenv local 3.11`
 
 Install your dev dependencies by running:
 - `poetry`
