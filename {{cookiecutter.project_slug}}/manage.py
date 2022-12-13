@@ -7,7 +7,7 @@ import sys
 def main():
     """Run administrative tasks."""
     os.environ.setdefault(
-        "DJANGO_SETTINGS_MODULE", "niicck_django_cookiecutter.settings"
+        "DJANGO_SETTINGS_MODULE", "{{cookiecutter.project_slug}}.settings"
     )
     from configurations.management import execute_from_command_line
 
