@@ -10,7 +10,6 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/4.1/ref/settings/
 """
 
-import os
 from pathlib import Path
 
 from configurations import Configuration
@@ -21,7 +20,8 @@ class Base(Configuration):
     DJANGO_CONFIGURATION = config("DJANGO_CONFIGURATION")
 
     # Build paths inside the project like this: BASE_DIR / 'subdir'.
-    BASE_DIR = Path(__file__).resolve().parent
+    BASE_DIR = Path(__file__).resolve().parent.parent
+    PROJECT_DIR = BASE_DIR / "cookiecutter_niick_django"
 
     ROOT_URLCONF = "cookiecutter_niicck_django.urls"
 
@@ -90,9 +90,9 @@ class Base(Configuration):
     # https://docs.djangoproject.com/en/4.1/howto/static-files/
 
     STATIC_URL = "/static/"
-    STATIC_ROOT = os.path.join(BASE_DIR, "static")
+    STATIC_ROOT = BASE_DIR / "static"
     MEDIA_URL = "/media/"
-    MEDIA_ROOT = os.path.join(BASE_DIR, "media")
+    MEDIA_ROOT = BASE_DIR / "media"
 
     # Default primary key field type
     # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field
@@ -110,6 +110,8 @@ class Base(Configuration):
         "django.contrib.postgres",
         # Third Party
         "django_extensions",
+        # Local
+        "cookiecutter_niicck_django.users",
     ]
 
     MIDDLEWARE = [
@@ -124,12 +126,18 @@ class Base(Configuration):
 
     DEBUG = config("DEBUG", default=False, cast=bool)
 
+    AUTH_USER_MODEL = "users.User"
+
     # Django Extensions
     SHELL_PLUS = "ipython"
 
 
 class Local(Base):
     ALLOWED_HOSTS = ["localhost", "0.0.0.0", "127.0.0.1"]
+
+
+class Test(Base):
+    pass
 
 
 class Production(Base):
