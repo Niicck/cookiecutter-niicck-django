@@ -23,7 +23,7 @@ class Base(Configuration):
     BASE_DIR = Path(__file__).resolve().parent.parent
     PROJECT_DIR = BASE_DIR / "cookiecutter_niick_django"
 
-    ROOT_URLCONF = "cookiecutter_niicck_django.urls"
+    ROOT_URLCONF = "cookiecutter_niicck_django.base.urls"
 
     TEMPLATES = [
         {
@@ -121,6 +121,7 @@ class Base(Configuration):
         # Third Party
         "django_extensions",
         # Local
+        "cookiecutter_niicck_django.base",
         "cookiecutter_niicck_django.users",
     ]
 
