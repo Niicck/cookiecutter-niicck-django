@@ -1,8 +1,6 @@
 SHELL := /bin/bash
 -include .env
 
-include cookiecutter_niicck_django/theme/Makefile
-
 .PHONY: install pre-commit type-check env-file build up shell shell_plus db_shell superuser
 
 install:
@@ -52,7 +50,7 @@ shell:
 	docker exec -it docker-app-1 /bin/bash
 
 # Enter into the django python shell inside your running django app docker container
-shell_plus:
+shell-plus:
 	docker exec -it docker-app-1 python manage.py shell_plus
 
 # Enter into the postgres db shell inside your running postgres container

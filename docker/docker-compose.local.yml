@@ -6,4 +6,4 @@ services:
     build:
       target: local
     volumes:
-      - '../cookiecutter_niicck_django:${APP_HOME}'
+      - '..:${APP_HOME}'

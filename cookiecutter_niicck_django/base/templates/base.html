@@ -1,16 +1,15 @@
+{% load static %}
+
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="h-full">
     <head>
         <title>{% block title %}niicck_django_cookiecutter{% endblock title %}</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="{% static '/css/output.css' %}">
     </head>
-    <body>
-        {% block header %}
-            <h1>Header</h1>
-        {% endblock header %}
+    <body class="h-full">
         {% block content %}
-            <p>Content</p>
         {% endblock content %}
     </body>
 </html>
