@@ -26,3 +26,6 @@ venv/
 # django
 cookiecutter_niicck_django/media/*
 cookiecutter_niicck_django/static/*
+
+# Node dependencies
+node_modules/

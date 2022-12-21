@@ -1,6 +1,8 @@
 SHELL := /bin/bash
 -include .env
 
+include cookiecutter_niicck_django/theme/Makefile
+
 .PHONY: install pre-commit type-check env-file build up shell shell_plus db_shell superuser
 
 install:

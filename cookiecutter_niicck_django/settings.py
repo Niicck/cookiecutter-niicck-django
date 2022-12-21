@@ -120,6 +120,7 @@ class Base(Configuration):
         "django.contrib.postgres",
         # Third Party
         "django_extensions",
+        "django_browser_reload",
         # Local
         "cookiecutter_niicck_django.base",
         "cookiecutter_niicck_django.users",
@@ -133,6 +134,7 @@ class Base(Configuration):
         "django.contrib.auth.middleware.AuthenticationMiddleware",
         "django.contrib.messages.middleware.MessageMiddleware",
         "django.middleware.clickjacking.XFrameOptionsMiddleware",
+        "django_browser_reload.middleware.BrowserReloadMiddleware",
     ]
 
     DEBUG = config("DEBUG", default=False, cast=bool)
