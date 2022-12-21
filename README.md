@@ -21,14 +21,19 @@ This project is designed to use pyenv (on python v3.11), poetry, and docker for 
 - [Pyenv](https://github.com/pyenv/pyenv#installation)
 - [Poetry](https://python-poetry.org/docs/)
 - [Docker](https://docs.docker.com/get-docker/)
+- [nvm](https://nodejs.org/en/download/package-manager/#nvm)
 
 Set the correct version of pyenv by running:
+- `pyenv install 3.11`
 - `pyenv local 3.11`
 
-Install your dev dependencies by running:
+Install the pre-commit hooks and other dependencies that are necessary for development:
 - `poetry`
 
-This will install the pre-commit hooks and other tools that are necessary for development.
+Set the correct version of node by running:
+- `nvm install 19.3.0`
+- `nvm use 19.3.0`
+
 
 ## Getting Started
 
