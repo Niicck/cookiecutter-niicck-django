@@ -99,13 +99,12 @@ class Base(Configuration):
     # Static files (CSS, JavaScript, Images)
     # https://docs.djangoproject.com/en/4.1/howto/static-files/
 
-    STATIC_URL = "static/"
-    STATIC_ROOT = PROJECT_DIR / "static"
-    MEDIA_URL = "media/"
-    MEDIA_ROOT = PROJECT_DIR / "media"
-    STATICFILES_DIRS = [
-        PROJECT_DIR / "static",
-    ]
+    # When static assets are collected via "collectstatic" command, they will be loaded
+    # into this STATIC_ROOT directory.
+    # From there, they should be transfered to a proper file server.
+    # All other static file settings are handled in their respective Local or Production
+    # settings classes.
+    STATIC_ROOT = PROJECT_DIR / "collectstatic"
 
     # Default primary key field type
     # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field
@@ -150,6 +149,24 @@ class Base(Configuration):
 
 class Local(Base):
     ALLOWED_HOSTS = ["localhost", "0.0.0.0", "127.0.0.1"]
+
+    # Static files (CSS, JavaScript, Images)
+    # https://docs.djangoproject.com/en/4.1/howto/static-files/
+
+    # URLs are for Local development only
+    STATIC_URL = "static/"
+    MEDIA_URL = "media/"
+
+    # If users upload images during Local development, they will be saved into this
+    # directory.
+    MEDIA_ROOT = Base.PROJECT_DIR / "media"
+
+    # Tell django to serve compiled static files from /static/ directory during
+    # development. (For example, this directory will contain compiled tailwindcss
+    # files)
+    STATICFILES_DIRS = [
+        Base.PROJECT_DIR / "static",
+    ]
 
 
 class Test(Base):
