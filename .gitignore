@@ -24,7 +24,6 @@ venv/
 .env
 
 # django
-cookiecutter_niicck_django/media/*
 cookiecutter_niicck_django/collect_static
 
 # Node dependencies
