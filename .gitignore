@@ -25,9 +25,7 @@ venv/
 
 # django
 cookiecutter_niicck_django/media/*
-!cookiecutter_niicck_django/media/.gitkeep
-cookiecutter_niicck_django/static/*
-!cookiecutter_niicck_django/static/.gitkeep
+cookiecutter_niicck_django/collect_static
 
 # Node dependencies
 node_modules/

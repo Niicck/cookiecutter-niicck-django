@@ -5,9 +5,9 @@
   "scripts": {
     "start": "npm run watch:tailwind",
     "build": "npm run build:clean && npm run build:tailwind",
-    "build:clean": "rimraf ./cookiecutter_niicck_django/static/css",
-    "build:tailwind": "cross-env NODE_ENV=production tailwindcss --postcss -i ./cookiecutter_niicck_django/base/static/css/base.css -o ./cookiecutter_niicck_django/static/css/output.css --minify",
-    "watch:tailwind": "cross-env NODE_ENV=development tailwindcss --postcss -i ./cookiecutter_niicck_django/base/static/css/base.css -o ./cookiecutter_niicck_django/static/css/output.css -w",
+    "build:clean": "rimraf ./local/static/css",
+    "build:tailwind": "cross-env NODE_ENV=production tailwindcss --postcss -i ./cookiecutter_niicck_django/base/static/base/css/main.css -o ./local/static/css/output.css --minify",
+    "watch:tailwind": "cross-env NODE_ENV=development tailwindcss --postcss -i ./cookiecutter_niicck_django/base/static/base/css/main.css -o ./local/static/css/output.css -w",
     "tailwindcss": "node ./node_modules/tailwindcss/lib/cli.js"
   },
   "keywords": [],

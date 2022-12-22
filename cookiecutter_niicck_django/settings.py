@@ -15,13 +15,13 @@ from pathlib import Path
 from configurations import Configuration
 from decouple import config
 
+# Build paths inside the project like this: BASE_DIR / 'subdir'.
+BASE_DIR = Path(__file__).resolve().parent.parent
+PROJECT_DIR = BASE_DIR / "cookiecutter_niicck_django"
+
 
 class Base(Configuration):
     DJANGO_CONFIGURATION = config("DJANGO_CONFIGURATION")
-
-    # Build paths inside the project like this: BASE_DIR / 'subdir'.
-    BASE_DIR = Path(__file__).resolve().parent.parent
-    PROJECT_DIR = BASE_DIR / "cookiecutter_niicck_django"
 
     ROOT_URLCONF = "cookiecutter_niicck_django.base.urls"
 
@@ -104,7 +104,7 @@ class Base(Configuration):
     # From there, they should be transfered to a proper file server.
     # All other static file settings are handled in their respective Local or Production
     # settings classes.
-    STATIC_ROOT = PROJECT_DIR / "collectstatic"
+    STATIC_ROOT = BASE_DIR / "local" / "collect_static"
 
     # Default primary key field type
     # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field
@@ -159,13 +159,13 @@ class Local(Base):
 
     # If users upload images during Local development, they will be saved into this
     # directory.
-    MEDIA_ROOT = Base.PROJECT_DIR / "media"
+    MEDIA_ROOT = BASE_DIR / "local" / "media"
 
     # Tell django to serve compiled static files from /static/ directory during
     # development. (For example, this directory will contain compiled tailwindcss
     # files)
     STATICFILES_DIRS = [
-        Base.PROJECT_DIR / "static",
+        BASE_DIR / "local" / "static",
     ]
 
 
