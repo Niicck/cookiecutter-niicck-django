@@ -54,7 +54,7 @@ Set the correct version of node by running:
 
 #### Adding a new environment variable
 You'll have to add it in 4 different places for it to pass through to your app.
-1. First add it to the template: [./utils/.env-sample](./utils/.env-sample)
+1. First add it to the template: [./tools/.env-sample](./tools/.env-sample)
 2. Then add it to your actual [./.env](./.env)
 3. Add it to the "app ENV vars" list within [./docker/django.Dockerfile](./docker/django.Dockerfile) and rebuild your container with `make build`.
 4. Add it the `app.environment:` list within [./docker/docker-compose.yml](./docker/docker-compose.yml).

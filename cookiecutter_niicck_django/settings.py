@@ -104,7 +104,7 @@ class Base(Configuration):
     # From there, they should be transfered to a proper file server.
     # All other static file settings are handled in their respective Local or Production
     # settings classes.
-    STATIC_ROOT = BASE_DIR / "local" / "collect_static"
+    STATIC_ROOT = BASE_DIR / "build" / "collect_static"
 
     # Default primary key field type
     # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field
@@ -157,15 +157,15 @@ class Local(Base):
     STATIC_URL = "static/"
     MEDIA_URL = "media/"
 
-    # If users upload images during Local development, they will be saved into this
+    # If users upload images during Local development, they will be stored in this
     # directory.
-    MEDIA_ROOT = BASE_DIR / "local" / "media"
+    MEDIA_ROOT = BASE_DIR / "build" / "media"
 
-    # Tell django to serve compiled static files from /static/ directory during
+    # Tell django to serve compiled static files from "build/static" directory during
     # development. (For example, this directory will contain compiled tailwindcss
     # files)
     STATICFILES_DIRS = [
-        BASE_DIR / "local" / "static",
+        BASE_DIR / "build" / "static",
     ]
 
 

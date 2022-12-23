@@ -27,14 +27,6 @@ repos:
     - id: migrations-check
       language: system
       name: Check for uncreated migrations.
-      entry: sh ./utils/migrations_check.sh
+      entry: sh ./tools/migrations_check.sh
       files: "models\\.py$"
-      stages: [commit]
-
-- repo: local
-  hooks:
-    - id: build-requirements-txt
-      language: system
-      name: Build requirements.txt from pyproject.toml
-      entry: sh ./utils/build_requirements_txt.sh
       stages: [commit]

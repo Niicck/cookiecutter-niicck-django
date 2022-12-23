@@ -27,7 +27,7 @@ services:
     image: ${APP_DOCKER_TAG}
     build:
       context: ..
-      dockerfile: ./docker/django.Dockerfile
+      dockerfile: ./docker/django/django.Dockerfile
       args:
         APP_HOME: ${APP_HOME}
     ports:

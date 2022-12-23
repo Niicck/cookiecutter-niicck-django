@@ -17,11 +17,14 @@ type-check:
 
 # Create .env from template if .env doesn't already exist
 env-file:
-	cp -n ./utils/.env-sample .env
+	cp -n ./tools/.env-sample .env
+
+# Build "build/requirements/dev.txt"
+requirements-dev:
+	python ./tools/build_requirements.py --dev
 
 # Build your django app docker container
-build:
-	sh ./utils/build_requirements_txt.sh
+build: requirements-dev
 	docker compose \
 		-f ./docker/docker-compose.yml \
 		-f ./docker/docker-compose.local.yml \

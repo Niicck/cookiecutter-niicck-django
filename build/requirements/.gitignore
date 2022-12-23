@@ -2,7 +2,3 @@
 *
 # Except this file
 !.gitignore
-
-# Preserve structure of media and static directories
-!media
-!static

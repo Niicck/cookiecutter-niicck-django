@@ -38,14 +38,14 @@ ENV \
     DJANGO_CONFIGURATION
 
 # Install python packages
-COPY ./docker/artifacts/requirements.txt ./requirements.txt
+COPY ./build/requirements/dev.txt ./requirements.txt
 RUN pip install -r requirements.txt
 
 # Copy application code to WORKDIR
 COPY . ${APP_HOME}
 
-ENTRYPOINT ./docker/scripts/docker-entrypoint.sh $0 $@
-CMD ./docker/scripts/docker-start.sh
+ENTRYPOINT ./docker/django/scripts/entrypoint.sh $0 $@
+CMD ./docker/django/scripts/start.sh
 
 ###
 # local image

@@ -23,8 +23,5 @@ venv/
 # env variables
 .env
 
-# django
-cookiecutter_niicck_django/collect_static
-
 # Node dependencies
 node_modules/
