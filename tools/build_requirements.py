@@ -65,5 +65,5 @@ class BuildRequirementsHandler:
 
 if __name__ == "__main__":
     is_dev = get_is_dev()
-    build_handler = BuildRequirementsHandler(is_dev=is_dev)
-    build_handler.run()
+    handler = BuildRequirementsHandler(is_dev=is_dev)
+    handler.run()
