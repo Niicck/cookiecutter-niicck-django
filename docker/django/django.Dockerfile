@@ -52,6 +52,9 @@ CMD ./docker/django/scripts/start.sh
 ###
 FROM base as local
 
+ENV \
+    DEBUGPY_PORT=
+
 ###
 # deployed image
 ###
