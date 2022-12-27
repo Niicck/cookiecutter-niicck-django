@@ -1,9 +1,24 @@
 version: "3.9"
 
-# Mount
 services:
+  # Mount a volume for "app" service so that it can read when changes to the code have
+  # been made.
   app:
     build:
       target: local
+    volumes:
+      - '..:${APP_HOME}'
+
+  # The "node" service is responsible for static asset compilation that requires
+  # node/js.
+  # Mount a volume for "node" service so that it can read when changes to the code have
+  # been made.
+  node:
+    build:
+      context: ..
+      dockerfile: ./docker/node/node.Dockerfile
+      args:
+        APP_HOME: ${APP_HOME}
+    tty: true
     volumes:
       - '..:${APP_HOME}'
