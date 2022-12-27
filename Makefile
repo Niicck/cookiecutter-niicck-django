@@ -39,8 +39,13 @@ up:
 		--env-file .env \
 		up
 
-# Restart your django app docker container
+# Kill and restart your django app docker container
 restart:
+	docker compose \
+		-f ./docker/docker-compose.yml \
+		-f ./docker/docker-compose.local.yml \
+		--env-file .env \
+		kill app
 	docker compose \
 		-f ./docker/docker-compose.yml \
 		-f ./docker/docker-compose.local.yml \

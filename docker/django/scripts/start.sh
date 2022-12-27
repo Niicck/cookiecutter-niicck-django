@@ -10,7 +10,7 @@ python $ROOT_DIR/manage.py migrate
 if [ "$DJANGO_CONFIGURATION" == "Local" ]; then
     python \
         -Xfrozen_modules=off \
-        -m debugpy --listen ${DJANGO_HOST}:${DEBUGPY_PORT} \
+        -m debugpy --listen 0.0.0.0:${DEBUGPY_PORT} \
         $ROOT_DIR/manage.py runserver ${DJANGO_HOST}:${DJANGO_PORT} \
         --insecure
 else
