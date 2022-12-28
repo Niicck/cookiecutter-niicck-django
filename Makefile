@@ -1,8 +1,6 @@
 SHELL := /bin/bash
 -include .env
 
-.PHONY: install pre-commit type-check env-file build up shell shell_plus db_shell superuser
-
 install:
 	poetry
 
