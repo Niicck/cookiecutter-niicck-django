@@ -2,16 +2,19 @@
 
 set -e
 
+# navigate to project root directory
 CURRENT_DIR=`dirname ${BASH_SOURCE[0]}`
-ROOT_DIR=$CURRENT_DIR/../../..
+pushd $CURRENT_DIR/../../.. > /dev/null
 
-python $ROOT_DIR/manage.py migrate
+# Apply migratiosn
+python manage.py migrate
 
+# Start server
 if [ "$DJANGO_CONFIGURATION" == "Local" ]; then
     python \
         -Xfrozen_modules=off \
         -m debugpy --listen 0.0.0.0:${DEBUGPY_PORT} \
-        $ROOT_DIR/manage.py runserver ${DJANGO_HOST}:${DJANGO_PORT} \
+        manage.py runserver ${DJANGO_HOST}:${DJANGO_PORT} \
         --insecure
 else
     echo "TODO"
