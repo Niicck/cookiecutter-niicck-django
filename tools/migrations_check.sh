@@ -2,8 +2,8 @@
 # Check that there aren't any unapplied model migrations.
 
 # Move to project root
-CURRENT_DIR=`dirname ${BASH_SOURCE[0]}`
-pushd $CURRENT_DIR/.. > /dev/null
+CURRENT_DIR=`dirname "${BASH_SOURCE[0]}"`
+pushd "$CURRENT_DIR/.." > /dev/null
 
 # Source ENV_FILE if it exists
 ENV_FILE=.env

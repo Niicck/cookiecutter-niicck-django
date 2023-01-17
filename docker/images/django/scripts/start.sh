@@ -3,8 +3,8 @@
 set -e
 
 # navigate to project root directory
-CURRENT_DIR=`dirname ${BASH_SOURCE[0]}`
-pushd $CURRENT_DIR/../../.. > /dev/null
+CURRENT_DIR=`dirname "${BASH_SOURCE[0]}"`
+pushd "$CURRENT_DIR/../../../.." > /dev/null
 
 # Apply migratiosn
 python manage.py migrate

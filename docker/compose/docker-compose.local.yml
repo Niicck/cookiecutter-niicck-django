@@ -1,0 +1,14 @@
+version: "3.9"
+
+services:
+  # Mount a volume for "app" service so that it can read when changes to the code have
+  # been made.
+  app:
+    environment:
+      - DEBUGPY_PORT
+    build:
+      target: local
+    ports:
+      - "${DEBUGPY_PORT}:${DEBUGPY_PORT}"
+    volumes:
+      - '../..:${APP_HOME}'

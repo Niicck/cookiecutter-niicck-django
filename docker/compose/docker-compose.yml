@@ -26,8 +26,8 @@ services:
       - DJANGO_CONFIGURATION
     image: ${APP_DOCKER_TAG}
     build:
-      context: ..
-      dockerfile: ./docker/django/django.Dockerfile
+      context: ../..
+      dockerfile: ./docker/images/django/django.Dockerfile
       args:
         APP_HOME: ${APP_HOME}
     ports:
@@ -36,3 +36,17 @@ services:
       - db
     links:
       - db:postgres
+
+  # The "node" service is responsible for static asset compilation that requires
+  # node/js.
+  # Mount a volume for "node" service so that it can read when changes to the code have
+  # been made.
+  node:
+    build:
+      context: ../..
+      dockerfile: ./docker/images/node/node.Dockerfile
+      args:
+        APP_HOME: ${APP_HOME}
+    tty: true
+    volumes:
+      - '../..:${APP_HOME}'

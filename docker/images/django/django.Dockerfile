@@ -44,8 +44,8 @@ RUN pip install -r requirements.txt
 # Copy application code to WORKDIR
 COPY . ${APP_HOME}
 
-ENTRYPOINT ./docker/django/scripts/entrypoint.sh $0 $@
-CMD ./docker/django/scripts/start.sh
+ENTRYPOINT ./docker/images/django/scripts/entrypoint.sh $0 $@
+CMD ./docker/images/django/scripts/start.sh
 
 ###
 # local image

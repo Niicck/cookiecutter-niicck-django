@@ -12,4 +12,4 @@ RUN npm install && npm cache clean --force
 # Copy application code to WORKDIR
 COPY . ${APP_HOME}
 
-ENTRYPOINT ./docker/node/scripts/entrypoint.sh
+ENTRYPOINT ./docker/images/node/scripts/entrypoint.sh

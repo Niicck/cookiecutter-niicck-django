@@ -4,6 +4,7 @@
 - [Static Assets](#static-assets)
 - [CSS](#css)
 - [Troubleshooting](#troubleshooting)
+- [Running without docker](#running-without-docker)
 
 ## Adding new environment variables
 You'll have to add it in 4 different places for it to pass through to your app.
@@ -33,3 +34,16 @@ We have a couple of Makefile commands that can help with troubleshooting.
 - `make shell_plus` lets you shell into a running django app container if you want to manually run any Python code within your django app or investigate your data.
 - `make db-shell` will let you read the raw data within your postgres database. I don't recommend writing, updating, or deleting any data outside of the django `make shell_plus` console unless you know what you're doing.
 - `make troubleshoot` will start a django app docker container without starting the django app server. There may be some cases where you need to troubleshoot the construction of the Docker container itself and not a bug within your Python code. This option can allow you to `make shell` into a container to investigate what may be going wrong with your system.
+
+## Running without docker
+
+There are some situations where you might want to run your django app directly on your local host machine instead of within a docker container. Those situations might include:
+- When using certain debugging tools
+- When developing with a python package that exists on on your local filesystem and is installed in "editable" mode
+
+There are two processes you must start to make this work.
+
+- `make up-no-app`
+  - This will run all complementary non-app services within docker
+- `make up-undockerized-app`
+  - This will run the django app directly on the host machine (within a poetry virtualenv)
