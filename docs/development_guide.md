@@ -5,6 +5,7 @@
 - [CSS](#css)
 - [Troubleshooting](#troubleshooting)
 - [Running without docker](#running-without-docker)
+  - [Troubleshooting](#troubleshooting-1)
 
 ## Adding new environment variables
 You'll have to add it in 4 different places for it to pass through to your app.
@@ -47,3 +48,7 @@ There are two processes you must start to make this work.
   - This will run all complementary non-app services within docker
 - `make up-undockerized-app`
   - This will run the django app directly on the host machine (within a poetry virtualenv)
+
+### Troubleshooting
+
+If `tools/run_undockerized_app.sh` isn't loading in variables properly or can't connect to the database, check if you have the `poetry-dotenv-plugin` installed. **If this plugin is installed, then the default script will not work, since it handles .env loading in its own way.** One fix would be to change the POSTGRES_HOST=127.0.0.1 within your .env file manually and flip it back when you're ready to return to a docker workflow.
