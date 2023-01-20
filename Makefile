@@ -37,18 +37,6 @@ up:
 		--env-file .env \
 		up
 
-# Run django app undockerized, but dockerize all other services
-up-no-app:
-	docker compose \
-		-f ./docker/compose/docker-compose.yml \
-		--env-file .env \
-		up \
-		db node
-
-# Run django app undockerized
-up-undockerized-app:
-	./tools/run_undockerized_app.sh
-
 # Kill and restart your django app docker container
 restart:
 	docker compose \
@@ -86,3 +74,16 @@ db-shell:
 # Create a superuser for your django app
 superuser:
 	docker exec -it ${COMPOSE_PROJECT_NAME}-app-1 python manage.py createsuperuser
+
+# Run django app undockerized, but dockerize all other services
+up-no-app:
+	docker compose \
+		-f ./docker/compose/docker-compose.yml \
+		--env-file .env \
+		up \
+		db node
+
+# Run django app undockerized
+up-undockerized-app:
+	./tools/activate.sh \
+		./tools/run_undockerized_app.sh
