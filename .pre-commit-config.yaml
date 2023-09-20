@@ -12,14 +12,17 @@ repos:
     -   id: black
 
 - repo: https://github.com/PyCQA/isort
-  rev: 5.8.0
+  rev: 5.12.0
   hooks:
     - id: isort
+      require_serial: true
+      args: ['--filter-files']
 
 - repo: https://github.com/PyCQA/flake8
   rev: 5.0.4
   hooks:
     - id: flake8
+      require_serial: true
       args: ["--config=setup.cfg"]
 
 - repo: local
